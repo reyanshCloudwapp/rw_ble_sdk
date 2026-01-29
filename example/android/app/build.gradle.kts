@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application") version "8.11.1"
-    id("org.jetbrains.kotlin.android") version "1.9.10"
+    id("org.jetbrains.kotlin.android") version "2.2.20"
     id("dev.flutter.flutter-gradle-plugin")
 }
 /*
@@ -27,7 +27,7 @@ apply(plugin = "dev.flutter.flutter-gradle-plugin")
 android {
     namespace = "com.cwt.rw_ble_example"
     compileSdk = 36
-    ndkVersion = "25.2.9519653"
+    ndkVersion = "28.2.13676358"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

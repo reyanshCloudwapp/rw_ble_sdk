@@ -19,7 +19,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir {
-            dirs 'libs'
+            dirs("libs")
         }
     }
 }
@@ -48,12 +48,28 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+
+    ndkVersion = "28.2.13676358"
+
+}
+
+repositories {
+    google()
+    mavenCentral()
+    flatDir {
+        dirs("libs")
+    }
 }
 
 dependencies {
-    def dhble = file('libs/blesdk-release-250821.aar')
-    if (dhble.exists()) {
-        implementation files(dhble)
-    }
+//    implementation fileTree(dir: "libs", include: ["*.jar"])
+//    def dhble = file('libs/blesdk-release-250821.aar')
+//    if (dhble.exists()) {
+//        implementation files(dhble)
+//    }
+    // Include the AAR
+    implementation(files("libs/blesdk-release-250821.aar"))
+
+    // Kotlin standard library
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
