@@ -1,0 +1,28 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - rw_ble (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - rw_ble (from `.symlinks/plugins/rw_ble/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  rw_ble:
+    :path: ".symlinks/plugins/rw_ble/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  rw_ble: 7b5fc2d0bcbfd3d2bfb5fa02711994522085c033
+
+PODFILE CHECKSUM: 8dc1702892af5648fcad9acd9fdb08dabd336ac2
+
+COCOAPODS: 1.14.3

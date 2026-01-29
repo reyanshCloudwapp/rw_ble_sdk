@@ -1,0 +1,2 @@
+rootProject.name = 'rw_ble'
+include ':rw_ble'

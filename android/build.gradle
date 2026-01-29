@@ -1,0 +1,89 @@
+//group = "com.cwt.rw_ble"
+//version = "1.0-SNAPSHOT"
+
+//buildscript {
+//    ext.kotlin_version = "1.9.10"
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        classpath("com.android.tools.build:gradle:8.11.1")
+//        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+//    }
+//}
+
+//allprojects {
+//    repositories {
+//        google()
+//        mavenCentral()
+//        flatDir {
+//            dirs 'libs'
+//        }
+//    }
+//}
+
+//apply plugin: "com.android.library"
+//apply plugin: "kotlin-android"
+//apply plugin: "maven-publish"
+
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.cwt.rw_ble"
+    compileSdk = 36
+
+    defaultConfig {
+        minSdk = 24
+        targetSdk = 36
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions { jvmTarget = "17" }
+
+//    sourceSets { main.java.srcDirs += "src/main/kotlin" }
+    // Correct Kotlin DSL syntax for source sets
+    sourceSets {
+        getByName("main") {
+            java.srcDirs("src/main/kotlin")
+        }
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+    flatDir {
+        dirs("libs")
+    }
+}
+
+dependencies {
+    val dhble = file("libs/blesdk-release-250821.aar")
+    if (dhble.exists()) {
+        implementation(files(dhble))
+    }
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+}
+
+//dependencies {
+//
+//    // Only include DHBleSdk if it exists
+//    def dhble = file('libs/blesdk-release-250821.aar')
+//    if (dhble.exists()) {
+//        compileOnly(name: 'blesdk-release-250821', ext: 'aar')
+//
+//    }
+//    implementation files('libs/blesdk-release-250821.aar')
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+//}
+
+
